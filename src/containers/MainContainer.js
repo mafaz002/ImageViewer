@@ -1,8 +1,8 @@
-import { Add, Approve, Reject } from "../Button";
-import { RightSpacer } from "./";
-import "./MainLayout.css";
+import { Add, Approve, Reject } from "../components";
+import { RightSpacer } from "./Spacer";
+import "./MainContainer.css";
 
-export const MainLayout = ({ children }) => {
+export const MainContainer = ({ children }) => {
   return (
     <div className={"header"}>
       <Add />

@@ -1,12 +1,12 @@
-import { ImageViewer } from "./components/Image";
-import { MainLayout } from "./components/Layout";
+import { ImageViewer } from "./components";
+import { MainContainer } from "./containers";
 
 function App() {
   return (
     <div>
-      <MainLayout>
+      <MainContainer>
         <ImageViewer />
-      </MainLayout>
+      </MainContainer>
     </div>
   );
 }
