@@ -1,12 +1,13 @@
 import { Provider } from "react-redux";
 import { store } from "./store";
-import { ImageViewer } from "./components";
+import { ImageViewer, ApprovedImage } from "./components";
 import { MainContainer } from "./containers";
 
 function App() {
   return (
     <Provider store={store}>
       <div>
+        <ApprovedImage />
         <MainContainer>
           <ImageViewer />
         </MainContainer>

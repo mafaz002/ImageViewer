@@ -5,6 +5,11 @@ export const addImage = (url = "") => ({
   payload: url,
 });
 
+export const approveImage = (url = "") => ({
+  type: actionTypes.APPROVE_IMAGE,
+  payload: url,
+});
+
 export const incrementCounter = () => ({ type: actionTypes.INCREMENT_COUNTER });
 
 export const fetchImage = () => (dispatch, getState) => {
