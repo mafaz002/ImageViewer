@@ -5,10 +5,16 @@ export const addImage = (url = "") => ({
   payload: url,
 });
 
-export const fetchImage = () => {
-  return (dispatch) => {
-    fetch("https://source.unsplash.com/random/300X300").then((res) =>
-      dispatch(addImage(res.url))
-    );
-  };
+export const incrementCounter = () => ({ type: actionTypes.INCREMENT_COUNTER });
+
+export const fetchImage = () => (dispatch, getState) => {
+  const {
+    Image: { counter },
+  } = getState();
+
+  fetch(`https://source.unsplash.com/random/${counter}`).then((res) => {
+    dispatch(incrementCounter());
+    // TODO : Replace the condition with a proper one
+    counter < 5 ? dispatch(fetchImage()) : dispatch(addImage(res.url));
+  });
 };
