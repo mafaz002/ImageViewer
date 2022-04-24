@@ -1,12 +1,15 @@
+import { useSelector } from "react-redux";
+
 export const ImageViewer = () => {
+  const { url: src } = useSelector((state) => state.Image);
+
   return (
     <>
       <img
         style={{ margin: "2em" }}
-        width={"60%"}
-        src={
-          "https://facts.net/wp-content/uploads/2020/05/AdobeStock_104060928.jpeg"
-        }
+        width={"1500px"}
+        height={"1000px"}
+        src={src}
       />
     </>
   );
