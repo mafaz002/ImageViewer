@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
-import { addImage } from "../../actions";
+import { fetchImage } from "../../actions";
 import AddIcon from "@material-ui/icons/Add";
 import "./Add.css";
 
 export const Add = () => {
   const dispatch = useDispatch();
-  const handleAdd = () => dispatch(addImage());
+  const handleAdd = () => dispatch(fetchImage());
 
   return (
     <span className={"add"} onClick={handleAdd}>

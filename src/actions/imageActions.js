@@ -1,8 +1,14 @@
 import { actionTypes } from "./";
 
-export const addImage = (
-  url = "https://static.independent.co.uk/2021/11/05/14/iStock-1036361536.jpg?quality=75&width=982&height=726&auto=webp"
-) => ({
+export const addImage = (url = "") => ({
   type: actionTypes.ADD_IMAGE,
   payload: url,
 });
+
+export const fetchImage = () => {
+  return (dispatch) => {
+    fetch("https://source.unsplash.com/random/300X300").then((res) =>
+      dispatch(addImage(res.url))
+    );
+  };
+};
