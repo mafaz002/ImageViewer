@@ -5,12 +5,7 @@ export const ImageViewer = () => {
 
   return (
     <>
-      <img
-        style={{ margin: "2em" }}
-        width={"1500px"}
-        height={"1000px"}
-        src={src}
-      />
+      <img style={{ margin: "2em" }} width={"50%"} height={"auto"} src={src} />
     </>
   );
 };
