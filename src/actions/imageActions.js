@@ -14,12 +14,12 @@ export const incrementCounter = () => ({ type: actionTypes.INCREMENT_COUNTER });
 
 export const fetchImage = () => (dispatch, getState) => {
   const {
-    Image: { counter },
+    Image: { counter, seenImages },
   } = getState();
 
-  fetch(`https://source.unsplash.com/random/${counter}`).then((res) => {
+  fetch(`https://source.unsplash.com/random/${counter}`).then(({ url }) => {
     dispatch(incrementCounter());
-    // TODO : Replace the condition with a proper one
-    counter < 5 ? dispatch(fetchImage()) : dispatch(addImage(res.url));
+    // check if an user has already witnessed this url
+    seenImages.includes(url) ? dispatch(fetchImage()) : dispatch(addImage(url));
   });
 };

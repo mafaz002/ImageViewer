@@ -1,15 +1,21 @@
 import { actionTypes } from "../actions";
 
 const initialState = {
-  url: "https://facts.net/wp-content/uploads/2020/05/AdobeStock_104060928.jpeg",
+  url:
+    "https://www.vroomkart.com/sites/vroomkart.com/files/default_images/placeholder-640x480.png",
   approvedImages: [],
+  seenImages: [],
   counter: 0,
 };
 
 export const imageReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_IMAGE:
-      return { ...state, url: action.payload };
+      return {
+        ...state,
+        url: action.payload,
+        seenImages: [...state.seenImages, action.payload],
+      };
     case actionTypes.APPROVE_IMAGE:
       return {
         ...state,

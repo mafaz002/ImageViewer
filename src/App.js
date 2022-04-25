@@ -1,18 +1,21 @@
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { PersistGate } from "redux-persist/lib/integration/react";
+import { store, persistor } from "./store";
 import { ImageViewer, ApprovedImage } from "./components";
 import { MainContainer } from "./containers";
 
 function App() {
   return (
-    <Provider store={store}>
-      <div>
-        <ApprovedImage />
-        <MainContainer>
-          <ImageViewer />
-        </MainContainer>
-      </div>
-    </Provider>
+    <PersistGate persistor={persistor}>
+      <Provider store={store}>
+        <div>
+          <ApprovedImage />
+          <MainContainer>
+            <ImageViewer />
+          </MainContainer>
+        </div>
+      </Provider>
+    </PersistGate>
   );
 }
 
