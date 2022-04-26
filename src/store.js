@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { imageReducer } from "./reducers";
+import { imageReducer, buttonReducer as Button } from "./reducers";
 
 const persistConfig = {
   key: "root",
@@ -18,7 +18,10 @@ const persistImageConfig = {
 
 const rootReducer = persistReducer(
   persistConfig,
-  combineReducers({ Image: persistReducer(persistImageConfig, imageReducer) })
+  combineReducers({
+    Image: persistReducer(persistImageConfig, imageReducer),
+    Button,
+  })
 );
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

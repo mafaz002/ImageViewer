@@ -2,7 +2,6 @@
     display: inline-flex;
     padding: 0.3rem;
     border-radius: 50%;
-    background-color: #ff0000;
 }
 
 .reject:hover {

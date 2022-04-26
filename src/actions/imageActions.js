@@ -1,4 +1,4 @@
-import { actionTypes } from "./";
+import { actionTypes, toggleReject, enableApproveReject } from "./";
 
 export const addImage = (url = "") => ({
   type: actionTypes.ADD_IMAGE,
@@ -10,6 +10,11 @@ export const approveImage = (url = "") => ({
   payload: url,
 });
 
+export const ApproveImage = (url) => (dispatch) => {
+  dispatch(toggleReject(true));
+  dispatch(approveImage(url));
+};
+
 export const incrementCounter = () => ({ type: actionTypes.INCREMENT_COUNTER });
 
 export const fetchImage = () => (dispatch, getState) => {
@@ -17,9 +22,14 @@ export const fetchImage = () => (dispatch, getState) => {
     Image: { counter, seenImages },
   } = getState();
 
+  const onSuccess = (url) => {
+    dispatch(enableApproveReject());
+    dispatch(addImage(url));
+  };
+
   fetch(`https://source.unsplash.com/random/${counter}`).then(({ url }) => {
     dispatch(incrementCounter());
     // check if an user has already witnessed this url
-    seenImages.includes(url) ? dispatch(fetchImage()) : dispatch(addImage(url));
+    seenImages.includes(url) ? dispatch(fetchImage()) : onSuccess(url);
   });
 };
