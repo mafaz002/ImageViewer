@@ -3,12 +3,12 @@ import { fetchImage } from "../../actions";
 import AddIcon from "@material-ui/icons/Add";
 import "./Add.css";
 
-export const Add = () => {
+export const Add = ({ style = {} }) => {
   const dispatch = useDispatch();
   const handleAdd = () => dispatch(fetchImage());
 
   return (
-    <span className={"add"} onClick={handleAdd}>
+    <span style={style} className={"add"} onClick={handleAdd}>
       <AddIcon />
     </span>
   );

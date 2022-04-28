@@ -6,6 +6,7 @@ const initialState = {
   approvedImages: [],
   seenImages: [],
   counter: 0,
+  isLoading: false,
 };
 
 export const imageReducer = (state = initialState, action) => {
@@ -21,6 +22,8 @@ export const imageReducer = (state = initialState, action) => {
         ...state,
         approvedImages: [...state.approvedImages, action.payload],
       };
+    case actionTypes.TOGGLE_IMAGE_LOADING:
+      return { ...state, isLoading: action.payload };
     case actionTypes.INCREMENT_COUNTER:
       return { ...state, counter: state.counter + 1 };
     default:

@@ -3,7 +3,7 @@ import { ApproveImage } from "../../actions";
 import Done from "@material-ui/icons/Done";
 import "./Approve.css";
 
-export const Approve = () => {
+export const Approve = ({ style = {} }) => {
   const { url, approvedImages } = useSelector((state) => state.Image);
   const { isApproveDisabled } = useSelector((state) => state.Button);
   const dispatch = useDispatch();
@@ -17,7 +17,11 @@ export const Approve = () => {
     <span
       className={"approve"}
       onClick={handleApprove}
-      style={{ backgroundColor: isApproveDisabled ? "grey" : "#039487" }}>
+      style={{
+        ...style,
+        backgroundColor: isApproveDisabled ? "grey" : "#039487",
+      }}
+    >
       <Done />
     </span>
   );

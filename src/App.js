@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { store, persistor } from "./store";
-import { ImageViewer, ApprovedImage } from "./components";
+import { EnhancedImageViewer, ApprovedImage } from "./components";
 import { MainContainer } from "./containers";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <div>
           <ApprovedImage />
           <MainContainer>
-            <ImageViewer />
+            <EnhancedImageViewer />
           </MainContainer>
         </div>
       </Provider>
