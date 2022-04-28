@@ -8,7 +8,12 @@ export const Add = ({ style = {} }) => {
   const handleAdd = () => dispatch(fetchImage());
 
   return (
-    <span style={style} className={"add"} onClick={handleAdd}>
+    <span
+      style={style}
+      className={"add"}
+      onClick={handleAdd}
+      data-test="add-component"
+    >
       <AddIcon />
     </span>
   );
