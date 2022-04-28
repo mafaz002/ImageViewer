@@ -6,20 +6,26 @@ export const ApprovedImage = () => {
 
   return (
     <>
-      <span className={"approved"}>
-        APPROVED IMAGES ({approvedImages.length})
-      </span>
       <div>
-        {approvedImages.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            width={"150px"}
-            height={"150px"}
-            style={{ marginRight: "25px" }}
-          />
-        ))}
+        <span className={"approved"}>
+          APPROVED IMAGES ({approvedImages.length})
+        </span>
+        <div className={"container"}>
+          {approvedImages.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              width={"100px"}
+              height={"100px"}
+              style={{ marginRight: "25px" }}
+            />
+          ))}
+        </div>
       </div>
+      <div
+        className={"line"}
+        style={{ display: approvedImages.length ? "block" : "none" }}
+      />
     </>
   );
 };
