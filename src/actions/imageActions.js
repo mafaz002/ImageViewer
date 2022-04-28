@@ -21,6 +21,11 @@ export const toggleImageLoading = (isLoading) => ({
   payload: isLoading,
 });
 
+export const setError = (error = null) => ({
+  type: actionTypes.SET_ERROR,
+  payload: error,
+});
+
 export const incrementCounter = () => ({ type: actionTypes.INCREMENT_COUNTER });
 
 export const fetchImage = () => (dispatch, getState) => {
@@ -36,9 +41,14 @@ export const fetchImage = () => (dispatch, getState) => {
     dispatch(addImage(url));
   };
 
-  fetch(getRandomImage(counter)).then(({ url }) => {
-    dispatch(incrementCounter());
-    // check if an user has already witnessed this url
-    seenImages.includes(url) ? dispatch(fetchImage()) : onSuccess(url);
-  });
+  fetch(getRandomImage(counter))
+    .then(({ url }) => {
+      dispatch(incrementCounter());
+      // check if an user has already witnessed this url
+      seenImages.includes(url) ? dispatch(fetchImage()) : onSuccess(url);
+    })
+    .catch((error) => {
+      dispatch(toggleImageLoading(false));
+      dispatch(setError(error.message));
+    });
 };

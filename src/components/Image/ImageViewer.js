@@ -14,5 +14,6 @@ const ImageViewer = () => {
 
 export const EnhancedImageViewer = withLoading(
   ImageViewer,
-  (state) => state.Image.isLoading
+  (state) => state.Image.isLoading,
+  (state) => state.Image.error
 );

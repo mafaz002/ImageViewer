@@ -13,7 +13,7 @@ const persistConfig = {
 const persistImageConfig = {
   key: "imageReducer",
   storage,
-  blacklist: ["counter", "isLoading"],
+  blacklist: ["counter", "isLoading", "error"],
 };
 
 const rootReducer = persistReducer(

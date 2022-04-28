@@ -4,8 +4,10 @@ import { RightSpacer } from "./Spacer";
 import "./MainContainer.css";
 
 export const MainContainer = ({ children }) => {
-  const { isLoading } = useSelector((state) => state.Image);
-  const customButtonStyle = { display: isLoading ? "none" : "inline-flex" };
+  const { isLoading, error } = useSelector((state) => state.Image);
+  const customButtonStyle = {
+    display: isLoading || !!error ? "none" : "inline-flex",
+  };
 
   return (
     <div className={"header"}>
