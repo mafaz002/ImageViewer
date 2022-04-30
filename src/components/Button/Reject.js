@@ -13,6 +13,7 @@ export const Reject = ({ style = {} }) => {
     <span
       className={"reject"}
       onClick={handleReject}
+      data-test={"reject-component"}
       style={{
         ...style,
         backgroundColor: isRejectDisabled ? "grey" : "#ff0000",

@@ -2,9 +2,9 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { mount } from "enzyme";
-import { imageReducer, buttonReducer } from "../../reducers";
-import { Approve } from "../../components";
-import { findByTestAttribute } from "../../testUtils";
+import { imageReducer, buttonReducer } from "../../../reducers";
+import { Approve } from "../../../components";
+import { findByTestAttribute } from "../../../testUtils";
 
 const imageInitialState = {
   url: "mockAPI",
