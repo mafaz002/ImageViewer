@@ -17,6 +17,7 @@ export const Approve = ({ style = {} }) => {
     <span
       className={"approve"}
       onClick={handleApprove}
+      data-test={"approve-component"}
       style={{
         ...style,
         backgroundColor: isApproveDisabled ? "grey" : "#039487",
