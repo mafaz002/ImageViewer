@@ -41,7 +41,7 @@ export const fetchImage = () => (dispatch, getState) => {
     dispatch(addImage(url));
   };
 
-  fetch(getRandomImage(counter))
+  return fetch(getRandomImage(counter))
     .then(({ url }) => {
       dispatch(incrementCounter());
       // check if an user has already witnessed this url
