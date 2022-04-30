@@ -1,6 +1,6 @@
 import { actionTypes } from "../actions";
 
-const initialState = {
+export const initialState = {
   url:
     "https://www.vroomkart.com/sites/vroomkart.com/files/default_images/placeholder-640x480.png",
   approvedImages: [],
