@@ -9,7 +9,7 @@ export const withLoading = (Component, loadingSelector, errorSelector) => {
 
     if (isLoading) {
       return (
-        <div className={"viewContainer"}>
+        <div className={"viewContainer"} data-test={"loading-container"}>
           <CircularProgress sx={{ marginLeft: "50%", marginTop: "30%" }} />
         </div>
       );
@@ -19,6 +19,7 @@ export const withLoading = (Component, loadingSelector, errorSelector) => {
       return (
         <div className={"viewContainer"}>
           <span
+            data-test={"error-container"}
             style={{
               position: "absolute",
               color: "red",
