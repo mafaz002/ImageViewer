@@ -7,10 +7,10 @@ export const ApprovedImage = () => {
   return (
     <>
       <div>
-        <span className={"approved"}>
+        <span className={"approved"} data-test={"approve-header"}>
           APPROVED IMAGES ({approvedImages.length})
         </span>
-        <div className={"container"}>
+        <div className={"container"} data-test={"approve-container"}>
           {approvedImages.map((src, index) => (
             <img
               key={index}
