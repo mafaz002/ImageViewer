@@ -5,7 +5,7 @@ const initialState = {
   isRejectDisabled: true,
 };
 
-export const buttonReducer = (state = initialState, action) => {
+export const buttonReducer = (state = initialState, action = { type: "" }) => {
   switch (action.type) {
     case actionTypes.TOGGLE_APPROVE:
       return { ...state, isApproveDisabled: action.payload };
