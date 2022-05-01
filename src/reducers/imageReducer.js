@@ -10,7 +10,7 @@ export const initialState = {
   error: null,
 };
 
-export const imageReducer = (state = initialState, action) => {
+export const imageReducer = (state = initialState, action = { type: "" }) => {
   switch (action.type) {
     case actionTypes.ADD_IMAGE:
       return {
